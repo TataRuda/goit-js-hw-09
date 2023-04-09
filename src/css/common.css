@@ -16,3 +16,104 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/** Task 1: color-switcher */
+[data-start], 
+[data-stop] {
+  width: 150px;
+  height: 30px;
+  border: 2px solid rgb(40, 38, 38);
+  border-radius: 2px;
+  font-size: 16px;
+  color: white;
+  background-color: #0b6365;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+[data-start]:hover,
+[data-stop]:hover{
+  background-color: #21aeb3;
+}
+
+[data-start]:focus,
+[data-stop]:focus {
+  background-color: #ccebec;
+  color: #212121;
+}
+
+[data-start]:disabled, 
+[data-stop]:disabled {
+opacity: 0,5;  
+cursor: not-allowed;
+background-color: #656868;
+color: #bec2c2;
+}
+/** Task 2: timer */
+#datetime-picker {
+border: none;
+border-radius: 2px;
+background-color:#3da1a2;
+width: 310px;
+height: 30px;
+font-size: 16px;
+text-align: center;
+}
+#datetime-picker:focus,
+#datetime-picker:hover {
+  background-color:#ccebec;
+}
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color:#ccebec;
+  width: 485px;
+  margin-top: 20px;
+  padding: 15px 10px;
+ }
+.value {
+  background-color:#ccebec;
+  color: #da5220;
+  font-size: 20px;
+}
+.label {
+  background-color:#ccebec;
+  color: #7c3e27;
+  font-size: 16px;
+}
+/** Task 3: promises */
+
+.form {
+  display: flex;
+  width: 300px;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  
+}
+.form input {
+  background-color: #d7ecec;
+  border-radius: 2px;
+  }
+.form label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#212121;
+  font-size: 18px;
+}
+.form button {
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  background-color: #656868;
+  cursor: pointer;
+  color: #212121;
+  border-radius: 2px;
+}
+.form button:hover {
+  background-color: #709e9f;
+}
+
