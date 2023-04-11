@@ -21,14 +21,14 @@ function createPromise(position, delay) {
 // Show promise with state: "fulfilled" result: value 
 function onSuccessful ({ position, delay }) {
   Notify.success (`✅ Fulfilled promise ${position} in ${delay}ms`,
-   {timeout: 6000,
+   {timeout: 2500,
    width: '320px',
    });
 }
 // Show promise with state: "rejected" result: error
 function onError ({ position, delay }) {
   Notify.failure (`❌ Rejected promise ${position} in ${delay}ms`,
-   {timeout: 6000,
+   {timeout: 2500,
     width: '320px',
    });
 }
@@ -47,11 +47,11 @@ function createPromises (ev) {
   let { delay, step, amount } = parameters;
 // do loops for creating promise, i = position
   for (let i = 1; i <= amount; i += 1) {
-    delay += step;
-    createPromise(i, delay).then(onSuccessful).catch(onError);
+    const promiseDelay = delay + (i - 1) * step;
+    createPromise(i, promiseDelay).then(onSuccessful).catch(onError);
   }
 // when all promises was created - clean form
-  inputData.reset();
+   inputData.reset();
 }
 
 inputData.addEventListener('submit', createPromises);

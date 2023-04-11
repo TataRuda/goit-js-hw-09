@@ -22,7 +22,7 @@ const options = {
         Notify.failure('Please choose a date in the future', {
           width: '320px',
           distance: '30px',
-          borderRadius: '2px',
+          borderRadius: '4px',
           position: 'left-top',
           timeout: 1500,
         });
@@ -63,12 +63,19 @@ function onTimerStart() {
     const startTime = new Date();
     const countdown = selectedDate - startTime;
     startBtn.disabled = true;
-    if (countdown < 0) {
-      clearInterval(timerId);
-      return;
-    }
+    if (countdown <= 0) {
+     Notify.success (`The countdown is over!`,
+      {timeout: 6500,
+      distance: '30px',
+      width: '320px',
+      position: 'left-top',
+      });
+     clearInterval(timerId);
+     return;
+    } 
     updateTimer(convertMs(countdown));
   }, 1000);
+  
 }
 
 function updateTimer({ days, hours, minutes, seconds }) {
